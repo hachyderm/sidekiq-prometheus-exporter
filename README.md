@@ -17,7 +17,7 @@ bundle exec rackup -p31337 -o127.0.0.1
 ```
 6. `curl` your server:
 ```bash
-curl loclalhost:31337
+curl localhost:31337
 ```
 
 ## TODO
