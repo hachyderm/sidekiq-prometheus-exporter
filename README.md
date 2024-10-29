@@ -10,7 +10,8 @@ Our little Hachyderm implementation of https://github.com/Strech/sidekiq-prometh
 ```bash
 bundle config set --local path vendor/bundle
 ```
-4. Run using `bundle exec`:
+4. Run `bundle`.
+5. Run server using `bundle exec`:
 ```bash
 bundle exec rackup -p31337 -o127.0.0.1
 ```
