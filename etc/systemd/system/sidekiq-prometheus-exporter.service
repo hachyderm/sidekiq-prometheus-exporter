@@ -3,10 +3,48 @@ Description=Sidekiq Prometheus Exporter
 After=network.target
 
 [Service]
+User=mastodon
 WorkingDirectory=/var/lib/sidekiq-prometheus-exporter
-ExecStart=bundle exec rackup -p31337 -o0.0.0.0
+Environment="PUMA_ENV=production"
+Environment="BIND=0.0.0.0"
+Environment="PORT=31337"
+ExecStart=/home/mastodon/.rbenv/shims/bundle exec puma
+TimeoutSec=15
 Restart=always
-DynamicUser=true
+# Proc filesystem
+ProcSubset=pid
+ProtectProc=invisible
+# Capabilities
+CapabilityBoundingSet=
+# Security
+NoNewPrivileges=true
+# Sandboxing
+ProtectSystem=strict
+PrivateTmp=true
+PrivateDevices=true
+PrivateUsers=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET
+RestrictAddressFamilies=AF_INET6
+RestrictAddressFamilies=AF_NETLINK
+RestrictAddressFamilies=AF_UNIX
+RestrictNamespaces=true
+LockPersonality=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+RemoveIPC=true
+PrivateMounts=true
+ProtectClock=true
+# System Call Filtering
+SystemCallArchitectures=native
+SystemCallFilter=~@cpu-emulation @debug @keyring @ipc @mount @obsolete @privileged @setuid
+SystemCallFilter=@chown
+SystemCallFilter=pipe
+SystemCallFilter=pipe2
 
 [Install]
 WantedBy=multi-user.target
