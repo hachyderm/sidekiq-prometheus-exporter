@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '>= 3.2.0'
 
 gem 'sidekiq-prometheus-exporter', '~> 0.2.1'
 gem 'dotenv', '~> 3.1', '>= 3.1.4'
