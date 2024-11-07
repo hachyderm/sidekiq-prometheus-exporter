@@ -13,14 +13,13 @@ bundle config set --local path vendor/bundle
 4. Run `bundle`.
 5. Run server using `bundle exec`:
 ```bash
-bundle exec rackup -p31337 -o127.0.0.1
+bundle exec puma
 ```
 6. `curl` your server:
 ```bash
-curl localhost:31337
+curl localhost:9292/metrics
 ```
 
 ## TODO
 
-- [ ] systemd unit
 - [ ] installer
