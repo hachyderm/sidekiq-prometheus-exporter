@@ -20,6 +20,11 @@ bundle exec puma
 curl localhost:9292/metrics
 ```
 
+If you installed via the systemd file, then the metrics endpoint is located at:
+```bash
+curl localhost:31337/metrics
+```
+
 ## TODO
 
 - [ ] installer
